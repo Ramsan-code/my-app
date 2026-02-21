@@ -315,7 +315,7 @@ export default function TicketDetailPage() {
                                 <div className="pt-4 border-t border-gray-50">
                                     <label className="text-xs font-medium text-gray-400 uppercase mb-2 block">Update Status</label>
                                     <select
-                                        className="w-full h-10 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                        className="w-full h-10 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
                                         value={ticket.status}
                                         onChange={(e) => handleUpdateStatus(e.target.value as Status)}
                                     >

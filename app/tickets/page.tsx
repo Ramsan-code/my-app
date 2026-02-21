@@ -104,7 +104,7 @@ export default function TicketListPage() {
                 </div>
                 <div className="flex gap-3">
                     <select
-                        className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none"
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
                     >
@@ -115,7 +115,7 @@ export default function TicketListPage() {
                         <option value="closed">Closed</option>
                     </select>
                     <select
-                        className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none"
                         value={priority}
                         onChange={(e) => setPriority(e.target.value)}
                     >
@@ -123,7 +123,6 @@ export default function TicketListPage() {
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
-                        <option value="urgent">Urgent</option>
                     </select>
                 </div>
             </div>

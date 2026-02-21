@@ -91,7 +91,7 @@ export default function CreateTicketPage() {
                             Description
                         </label>
                         <textarea
-                            className={`w-full min-h-[150px] rounded-md border ${errors.description ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-indigo-500'} bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all`}
+                            className={`w-full min-h-[150px] rounded-md border ${errors.description ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-indigo-500'} bg-white px-3 py-2 text-sm text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all`}
                             placeholder="Provide a detailed description of the problem..."
                             {...register('description')}
                         />
@@ -106,7 +106,7 @@ export default function CreateTicketPage() {
                                 Priority Level
                             </label>
                             <select
-                                className="h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+                                className="h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none"
                                 {...register('priority')}
                             >
                                 <option value="low">Low</option>
@@ -125,7 +125,7 @@ export default function CreateTicketPage() {
                                     <TagIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
                                     <input
                                         type="text"
-                                        className="h-10 w-full rounded-md border border-gray-300 bg-white pl-9 pr-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+                                        className="h-10 w-full rounded-md border border-gray-300 bg-white pl-9 pr-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none"
                                         placeholder="Add a tag..."
                                         value={currentTag}
                                         onChange={(e) => setCurrentTag(e.target.value)}
