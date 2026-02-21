@@ -95,11 +95,7 @@ export default function LoginPage() {
                         </Button>
                     </form>
 
-                    <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-                        <p className="text-sm text-gray-500">
-                            Don't have an account? <span className="text-indigo-600 font-semibold cursor-pointer hover:underline">Contact your administrator</span>
-                        </p>
-                    </div>
+                   
                 </div>
             </div>
         </div>

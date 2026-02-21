@@ -47,7 +47,7 @@ export default function TicketListPage() {
             setTickets(response.data.tickets);
             setTotalPages(response.data.totalPages);
         } catch (err: any) {
-            setError('Failed to load tickets. Please try again.');
+            setError(err.response?.data?.message || 'Failed to load tickets. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -81,8 +81,7 @@ export default function TicketListPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Tickets</h1>
-                    <p className="text-gray-500 mt-1">Manage and track customer support requests</p>
+                    <h1 className="text-3xl tracking-tight">Tickets</h1>
                 </div>
                 <Link href="/tickets/create">
                     <Button className="gap-2">
