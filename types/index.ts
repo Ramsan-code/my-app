@@ -3,8 +3,10 @@ export type Role = 'customer' | 'agent' | 'admin';
 export interface User {
     id: string;
     email: string;
+    username: string;
     name: string;
     role: Role;
+    createdAt?: string;
 }
 
 export type Priority = 'low' | 'medium' | 'high' | 'urgent';
@@ -18,7 +20,9 @@ export interface Ticket {
     priority: Priority;
     tags: string[];
     ownerId: string;
+    ownerName?: string;
     assigneeId?: string;
+    assigneeName?: string;
     createdAt: string;
     updatedAt: string;
 }

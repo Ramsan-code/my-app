@@ -55,6 +55,15 @@ export default function TicketDetailPage() {
         fetchData();
     }, [fetchData]);
 
+    const handleUpdateStatus = async (newStatus: Status) => {
+        try {
+            const response = await apiClient.put(`/tickets/${id}`, { status: newStatus });
+            setTicket(response.data);
+        } catch (err: any) {
+            alert(err.response?.data?.message || 'Failed to update status');
+        }
+    };
+
     const handleAddComment = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!newComment.trim()) return;
@@ -281,7 +290,7 @@ export default function TicketDetailPage() {
                                     Submitted By
                                 </dt>
                                 <dd className="text-sm font-semibold text-gray-800">
-                                    User ID: {ticket.ownerId}
+                                    {ticket.ownerName || ticket.ownerId}
                                 </dd>
                             </div>
                             <div>
@@ -290,7 +299,7 @@ export default function TicketDetailPage() {
                                     Assigned Agent
                                 </dt>
                                 <dd className="text-sm font-semibold text-gray-800">
-                                    {ticket.assigneeId || 'Unassigned'}
+                                    {ticket.assigneeName || 'Unassigned'}
                                 </dd>
                             </div>
                             <div>
@@ -302,6 +311,21 @@ export default function TicketDetailPage() {
                                     {new Date(ticket.updatedAt).toLocaleTimeString()}
                                 </dd>
                             </div>
+                            {(user?.role === 'agent' || user?.role === 'admin') && (
+                                <div className="pt-4 border-t border-gray-50">
+                                    <label className="text-xs font-medium text-gray-400 uppercase mb-2 block">Update Status</label>
+                                    <select
+                                        className="w-full h-10 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                        value={ticket.status}
+                                        onChange={(e) => handleUpdateStatus(e.target.value as Status)}
+                                    >
+                                        <option value="open">Open</option>
+                                        <option value="in-progress">In Progress</option>
+                                        <option value="resolved">Resolved</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            )}
                         </dl>
                     </div>
                 </div>
