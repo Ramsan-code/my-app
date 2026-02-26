@@ -256,14 +256,15 @@ export default function TicketDetailPage() {
                                             Your comment will be visible to support agents.
                                         </div>
                                     )}
-                                    <Button
-                                        type="submit"
-                                        isLoading={commentLoading}
-                                        className="w-full sm:w-auto min-w-[140px] gap-2"
-                                    >
-                                        <Send className="w-4 h-4" />
-                                        Send Message
-                                    </Button>
+                                <Button
+    type="submit"
+    isLoading={commentLoading}
+    className="w-full sm:w-auto min-w-[140px] gap-2 bg-green-600 hover:bg-green-700 text-white"
+>
+    <Send className="w-4 h-4" />
+    Send Message
+</Button>
+
                                 </div>
                             </form>
                         </div>
@@ -307,9 +308,13 @@ export default function TicketDetailPage() {
                                     <AlertTriangle className="w-3.5 h-3.5" />
                                     Last Updated
                                 </dt>
-                                <dd className="text-sm font-semibold text-gray-800">
-                                    {new Date(ticket.updatedAt).toLocaleTimeString()}
-                                </dd>
+                            <dd className="text-sm font-semibold text-gray-800">
+    {new Date(ticket.updatedAt).toLocaleString(undefined, {
+        hour: '2-digit',
+        minute: '2-digit'
+    })}
+</dd>
+
                             </div>
                             {(user?.role === 'agent' || user?.role === 'admin') && (
                                 <div className="pt-4 border-t border-gray-50">
